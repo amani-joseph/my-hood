@@ -1,4 +1,49 @@
-{% extends 'myhood/base.html'%}
-{% block content%}
-<p>HOME WORKS</p>
+<!-- @format -->
+
+{% extends 'myhood/base.html'%}{% load crispy_forms_tags %} {% block content%}
+<div class="container col-xl-10 col-xxl-8 px-4 py-5 mb-5">
+	<div class="row align-items-center g-lg-5 py-5">
+		<div class="col-lg-7 text-center text-lg-start">
+			<h1 class="display-4 fw-bold lh-1 mb-3"
+				>Vertically centered hero sign-up form</h1
+			>
+			<p class="col-lg-10 fs-4"
+				>Below is an example form built entirely with Bootstrap’s form controls.
+				Each required form group has a validation state that can be triggered by
+				attempting to submit the form without completing it.</p
+			>
+		</div>
+		<div
+			class="col-md-10 mx-auto col-lg-5 rounded-3 text-light shadow-3"
+			style="background-color: rgba(0, 0, 0, 0.473)"
+		>
+			
+
+			<form method="POST" class="d-flex flex-column align-items-center">
+				{% csrf_token %}
+				<fieldset class="form-group">
+					<legend class="border-bottom mb-4 text-center">Sign in</legend>
+					{{ form | crispy}}
+				</fieldset>
+				<div class="form-group mx-auto my-3">
+					<button class="btn btn-lg btn-block btn-primary" type="submit"
+						>Log In</button
+					>
+				</div>
+			</form>
+			
+			<div class="border-top pt-3 text-center">
+				<small class=" text-light my-2">
+					Don't have an account?
+					<a class="ml-2 text-decoration-none text-info" href="{% url 'signup' %}">Sign Up</a>
+				</small>
+                    <hr class="m-3" />
+                    <small class="text-light text-center my-3 p-3"
+				>By clicking Sign up, you agree to the terms of use.</small
+			>
+			</div>
+			
+		
+	</div>
+</div>
 {% endblock content%}

@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm # UserUpdateForm, ProfileUpdateForm
 
 
 # Create your views here.
@@ -13,7 +13,7 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Your account has been created {username} \n welcome to instagram')
+            messages.success(request, f'Your account has been created {username} \n welcome to myhood')
             return redirect('login')
     else:
         form = UserRegisterForm()
