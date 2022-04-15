@@ -14,3 +14,6 @@ def index(request):
     }
     # return render(request, )
     return render(request, 'myhood/index.html')
+
+def about(request):
+    return render(request, 'myhood/about.html')

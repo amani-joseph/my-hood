@@ -12,18 +12,22 @@
 				<div
 					class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
 				>
-					<a
-						href="/"
-						class="d-flex h3 fw-bold align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
-					>
-						my-hood
-					</a>
+        <div>
+          <a
+          href="{% url 'index'%}"
+          class="d-flex h3 fw-bold align-middle align-items-center my-auto mb-2 mb-lg-0 text-dark text-decoration-none"
+        >
+        <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png" width="32" class="img-fluid mx-2 "  alt="my-hood-logo">	my-hood
+        </a>
+        </div>
+				
 
 					<ul
 						class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
 					>
-						<!-- <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
+					<li><a href="{% url 'index'%}" class="nav-link px-2 link-dark h5 my-auto">Home</a></li>
+					<li><a href="{% url 'about'%}" class="nav-link px-2 link-dark h5 my-auto">About</a></li>
+         	<!--  
           <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li> -->
 						<!-- <li><a href="#" class="nav-link px-2 link-dark">Products</a></li> -->
 					</ul>
