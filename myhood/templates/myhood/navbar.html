@@ -41,10 +41,17 @@
 						/>
 					</form>
 					<div class="col-md-3 text-end">
-						<button type="button" class="btn btn-outline-primary me-2"
-							>Login</button
-						>
-						<button type="button" class="btn btn-primary ">Sign-up</button>
+						<a href="{% url 'login' %}">
+							<button type="button" class="btn btn-outline-primary me-2"
+							>Login</button>
+						</a>
+
+						<a href="{% url 'signup' %}">
+							<button type="button" class="btn btn-primary me-2"
+							>Sign-up</button>
+						</a>
+						
+						<!-- <button type="button" class="btn btn-primary ">Sign-up</button> -->
 					</div>
 
 					<div class="dropdown text-end mx-2">
