@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+from django.conf import settings
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
@@ -27,6 +28,11 @@ cloudinary.config(
     api_secret=config('CLOUDINARY_API_SECRET'),
     secure=True
 )
+# LOCATION_FIELD_PATH = settings.STATIC_URL + 'location_field'
+LOCATION_FIELD = {
+    'map.provider': 'openstreetmap',
+    'search.provider': 'nominatim',
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -57,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'cloudinary',
+    'phonenumber_field',
     'location_field.apps.DefaultConfig',
 
 ]
