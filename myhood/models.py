@@ -12,7 +12,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = CloudinaryField('profile/' )
     bio = models.TextField(max_length=300, null=True, default="My Bio", blank=True)
-    hood = models.ForeignKey('Neighbourhood', on_delete=models.CASCADE)
+    hood = models.ForeignKey('Neighbourhood', null=True, on_delete=models.SET_NULL,default='')
 
     def __str__(self):
         return f'{self.user.username} Profile'
