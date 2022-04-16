@@ -7,28 +7,60 @@
 		<title>Title</title>
 	</head>
 	<body>
-		<header class="p-3 mb-3 border-bottom ">
+		<header
+			class="p-3 mb-3 border-bottom"
+			style="
+				background: #e0eafc; /* fallback for old browsers */
+				background: -webkit-linear-gradient(
+					to right,
+					#cfdef3,
+					#e0eafc
+				); /* Chrome 10-25, Safari 5.1-6 */
+				background: linear-gradient(
+					to right,
+					#cfdef3,
+					#e0eafc
+				); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			"
+		>
 			<div class="container">
 				<div
 					class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
 				>
-        <div>
-          <a
-          href="{% url 'index'%}"
-          class="d-flex h3 fw-bold align-middle align-items-center my-auto mb-2 mb-lg-0 text-dark text-decoration-none"
-		style="color: rgb(61, 43, 226) !important;"
-        >
-        <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png" width="32" class="img-fluid mx-2 "  alt="my-hood-logo">	My-hood
-        </a>
-        </div>
-				
+					<div>
+						<a
+							href="{% url 'index'%}"
+							class="d-flex h3 fw-bold align-middle align-items-center my-auto mb-2 mb-lg-0 text-dark text-decoration-none"
+							style="color: rgb(61, 43, 226) !important"
+						>
+							<img
+								src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png"
+								width="32"
+								class="img-fluid mx-2"
+								alt="my-hood-logo"
+							/>
+							My-hood
+						</a>
+					</div>
 
 					<ul
 						class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
 					>
-					<li><a href="{% url 'index'%}" class="nav-link px-2 link-dark h5 my-auto">Home</a></li>
-					<li><a href="{% url 'about'%}" class="nav-link px-2 link-dark h5 my-auto">About</a></li>
-         	<!--  
+						<li
+							><a
+								href="{% url 'index'%}"
+								class="nav-link px-2 link-dark h5 my-auto"
+								>Home</a
+							></li
+						>
+						<li
+							><a
+								href="{% url 'about'%}"
+								class="nav-link px-2 link-dark h5 my-auto"
+								>About</a
+							></li
+						>
+						<!--  
           <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li> -->
 						<!-- <li><a href="#" class="nav-link px-2 link-dark">Products</a></li> -->
 					</ul>
@@ -63,30 +95,39 @@
 							aria-labelledby="dropdownUser1"
 							style=""
 						>
-							<li><a class="dropdown-item" href="#">New project...</a></li>
+							<li
+								><a class="dropdown-item" href="{% url 'profile'%}"
+									>Profile</a
+								></li
+							>
+							<li><a class="dropdown-item" href="#">New Neighborhood...</a></li>
 							<li><a class="dropdown-item" href="#">Settings</a></li>
-							<li><a class="dropdown-item" href="#">Profile</a></li>
 							<li><hr class="dropdown-divider" /></li>
-							<li><a class="dropdown-item" href="#">Sign out</a></li>
+							<li
+								><a class="dropdown-item" href="{% url 'logout'%}"
+									>Sign out</a
+								></li
+							>
 						</ul>
 					</div>
 					{% else %}
-					
+
 					<div class="col-md-3 text-end">
 						<a href="{% url 'login' %}">
 							<button type="button" class="btn btn-outline-primary me-2"
-							>Login</button>
+								>Login</button
+							>
 						</a>
 
 						<a href="{% url 'signup' %}">
 							<button type="button" class="btn btn-primary me-2"
-							>Sign-up</button>
+								>Sign-up</button
+							>
 						</a>
-						
+
 						<!-- <button type="button" class="btn btn-primary ">Sign-up</button> -->
 					</div>
 					{% endif %}
-					
 				</div>
 			</div>
 		</header>

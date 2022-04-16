@@ -77,4 +77,4 @@ class Category(models.Model):
      category = models.CharField(choices=categories, max_length=100, default="", blank=True)
      business_location = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='category', null=True)
      def __str__(self):
-        return f'{self.category}'
+        return f'{self.business_location}, category'

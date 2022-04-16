@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+
+from myhood.models import Neighbourhood
 from .forms import UserRegisterForm # UserUpdateForm, ProfileUpdateForm
 
 
@@ -18,6 +20,7 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, "myhood/auth/signup.html", {'form': form})
+
 
 def index(request):
     """
@@ -35,9 +38,14 @@ def about(request):
     return render(request, 'myhood/about.html')
 
 
-# @login_required
+@login_required
 def profile(request):
-    return render(request, 'myhood/auth/profile.html')
+    user = request.user
+    context = {
+        'user': user,
+        'neighbourhood': Neighbourhood.objects.filter(user=request.user).all()
+    }
+    return render(request, 'myhood/auth/profile.html', context)
 
 
 # @login_required
