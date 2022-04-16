@@ -16,8 +16,9 @@
           <a
           href="{% url 'index'%}"
           class="d-flex h3 fw-bold align-middle align-items-center my-auto mb-2 mb-lg-0 text-dark text-decoration-none"
+		style="color: rgb(61, 43, 226) !important;"
         >
-        <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png" width="32" class="img-fluid mx-2 "  alt="my-hood-logo">	my-hood
+        <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png" width="32" class="img-fluid mx-2 "  alt="my-hood-logo">	My-hood
         </a>
         </div>
 				
@@ -40,20 +41,7 @@
 							aria-label="Search"
 						/>
 					</form>
-					<div class="col-md-3 text-end">
-						<a href="{% url 'login' %}">
-							<button type="button" class="btn btn-outline-primary me-2"
-							>Login</button>
-						</a>
-
-						<a href="{% url 'signup' %}">
-							<button type="button" class="btn btn-primary me-2"
-							>Sign-up</button>
-						</a>
-						
-						<!-- <button type="button" class="btn btn-primary ">Sign-up</button> -->
-					</div>
-
+					{% if user.is_authenticated %}
 					<div class="dropdown text-end mx-2">
 						<a
 							href="#"
@@ -82,6 +70,23 @@
 							<li><a class="dropdown-item" href="#">Sign out</a></li>
 						</ul>
 					</div>
+					{% else %}
+					
+					<div class="col-md-3 text-end">
+						<a href="{% url 'login' %}">
+							<button type="button" class="btn btn-outline-primary me-2"
+							>Login</button>
+						</a>
+
+						<a href="{% url 'signup' %}">
+							<button type="button" class="btn btn-primary me-2"
+							>Sign-up</button>
+						</a>
+						
+						<!-- <button type="button" class="btn btn-primary ">Sign-up</button> -->
+					</div>
+					{% endif %}
+					
 				</div>
 			</div>
 		</header>
