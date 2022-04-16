@@ -24,15 +24,17 @@ def register(request):
 
 def index(request):
     """
-    view to render the index.
+    view to render the index page.
     """
     title = 'My-Hood'
     context = {
         'title': title,
+        'hoods': Neighbourhood.objects.all()
 
     }
     # return render(request, )
-    return render(request, 'myhood/index.html')
+    return render(request, 'myhood/index.html', context)
+
 
 def about(request):
     return render(request, 'myhood/about.html')
@@ -48,6 +50,6 @@ def profile(request):
     return render(request, 'myhood/auth/profile.html', context)
 
 
-# @login_required
+@login_required
 def edit_profile(request):
     return render(request, 'myhood/auth/edit-profile.html')
