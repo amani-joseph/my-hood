@@ -74,6 +74,37 @@
 						/>
 					</form>
 					{% if user.is_authenticated %}
+					<style>
+						.btn-grad1 {
+							background-image: linear-gradient(
+								to right,
+								#1d2b64 0%,
+								#f8cdda 51%,
+								#1d2b64 100%
+							);
+						}
+						.btn-grad1 {
+							margin: 5px;
+							padding: 5px 5px;
+							text-align: center;
+
+							transition: 0.5s;
+							background-size: 200% auto;
+							color: white;
+							box-shadow: 0 0 20px #eee;
+							border-radius: 10px;
+							display: block;
+						}
+
+						.btn-grad1:hover {
+							background-position: right center; /* change the direction of the change here */
+							color: #fff;
+							text-decoration: none;
+						}
+					</style>
+					<a class="" href="#">
+						<div class="btn btn-grad1 fw-bold">Add Hood</div>
+					</a>
 					<div class="dropdown text-end mx-2">
 						<a
 							href="#"

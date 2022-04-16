@@ -51,7 +51,9 @@ class Business(models.Model):
      name = models.CharField(max_length=100, null=False, blank=False, default='')
      email = models.EmailField(max_length=100)
      user = models.ForeignKey(User, on_delete=models.CASCADE)
+   #   city = models.CharField(max_length=100)
      neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+     location = PlainLocationField(based_fields=['neighbourhood.city'], zoom=7, blank=False, default='')
      def __str__(self):
         return f'{self.name}'
 
