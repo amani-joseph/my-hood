@@ -1,12 +1,12 @@
 from multiprocessing import context
 from django.shortcuts import redirect, render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
 from myhood.models import Neighbourhood, Business
-from .forms import UserRegisterForm , NeighbourHoodForm, BusinessForm #ProfileUpdateForm
+from .forms import UserRegisterForm, NeighbourHoodForm, BusinessForm  # ProfileUpdateForm
 from django.views.generic import (
     ListView,
     DetailView,
@@ -85,17 +85,18 @@ def hood_detail(request, pk):
     """
     hood = Neighbourhood.objects.get(id=pk)
     businesses = Business.objects.filter(neighbourhood=hood)
-    context={
+    context = {
         'hood': hood,
         'businesses': businesses
     }
-    return  render(request, 'myhood/hood_detail.html', context)
+    return render(request, 'myhood/hood_detail.html', context)
 
 
-def create_business(request):
+def create_business(request, pk):
     """_summary_
 
     Args:
+        pk: the neighbourhood's id
         request (_type_): _description_
 
     Returns:
@@ -104,14 +105,15 @@ def create_business(request):
     if request.method == 'POST':
         form = BusinessForm(request.POST, request.FILES)
         if form.is_valid():
-            hood = form.save(commit=False)
-            hood.user = request.user
-            hood.save()
-            return redirect('index')
+            business = form.save(commit=False)
+            business.user = request.user
+            business.neighbourhood = Neighbourhood.objects.filter(id=pk).first()
+            business.save()
+            return HttpResponseRedirect(f'hood_detail/{pk}')
+            # return redirect('hood-detail')
     else:
         form = BusinessForm()
     return render(request, 'myhood/business_form.html', {'form': form})
-
 
 
 def about(request):
