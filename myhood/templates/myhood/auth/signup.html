@@ -1,51 +1,66 @@
 <!-- @format -->
 
 {% extends 'myhood/base.html'%}{% load crispy_forms_tags %} {% block content%}
-<div class="container col-xl-10 col-xxl-8 px-4 ">
-     <div class="row align-items-center g-lg-5 py-5">
-       <div class="col-lg-7 text-center text-lg-start">
-         <h1 class="display-4 fw-bold lh-1 mb-3 text-light">Vertically centered hero sign-up form</h1>
-         <p class="col-lg-10 fs-4 text-light">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-       </div>
-       <div class="col-md-10 mx-auto col-lg-5 rounded-3 shadow-3" style="background-color: rgba(0, 0, 0, 0.473)">
-          <style>
-               body{
-                    background-image: url('https://github.com/amani-joseph/ASSETS/blob/main/compressed/pexels-photo-323705%20(1).png?raw=true');
-               }
-               .text-muted {
-                    color:beige !important;
-               }
-          </style>
-          <img
-		class="d-block mx-auto mb-4"
-		src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png"
-		alt=""
-		width="72"
-	/>
-         
-         <form method="POST">
-          {% csrf_token %}
-          <fieldset class="form-group text-light">
-               <legend class="text-center">Sign up</legend>
-               {{ form | crispy}}
-          </fieldset>
-          <div class="form-group container d-flex justify-items-center">
-               <button
-                    class="mx-auto btn btn-block btn-primary mx-auto"
-                    type="submit"
-               >Sign Up</button>
-          </div>
-          </form>
-          <div class=" pt-3 text-center">
-               <small class="text-muted mx-auto">
-                    Already Have An Account?
-                    <a class="ml-2 text-decoration-none text-info" href="{% url 'login' %}">Sign In</a>
-               </small>
-               <hr class="m-3" />
-               <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
-          </div>
-         
-       </div>
-     </div>
-   </div>
+<div class="container col-xl-10 col-xxl-8 px-4">
+	<div
+		class="row align-items-center g-lg-5 m-3"
+		style="background-color: rgba(0, 0, 0, 0.473); border-radius: 15px"
+	>
+		<div class="col-lg-7 text-center text-lg-start">
+			<h1 class="display-4 fw-bold lh-1 mb-3 text-light"
+				>Vertically centered hero sign-up form</h1
+			>
+			<p class="col-lg-10 fs-4 text-light"
+				>Below is an example form built entirely with Bootstrap’s form controls.
+				Each required form group has a validation state that can be triggered by
+				attempting to submit the form without completing it.</p
+			>
+		</div>
+		<div class="col-md-10 mx-auto col-lg-5 rounded-3 shadow-3  my-3">
+			<style>
+				body {
+					background-image: url("https://github.com/amani-joseph/ASSETS/blob/main/compressed/pexels-photo-323705%20(1).png?raw=true");
+				}
+				.text-muted {
+					color: beige !important;
+				}
+			</style>
+			<img
+				class="d-block mx-auto mb-4"
+				src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png"
+				alt=""
+				width="72"
+			/>
+
+			<form method="POST">
+				{% csrf_token %}
+				<fieldset class="form-group text-light">
+					<legend class="text-center">Sign up</legend>
+					{{ form | crispy}}
+				</fieldset>
+				<div class="form-group container d-flex justify-items-center">
+					<button
+						class="mx-auto btn btn-block btn-primary mx-auto"
+						type="submit"
+						>Sign Up</button
+					>
+				</div>
+			</form>
+			<div class="pt-3 text-center">
+				<small class="text-muted mx-auto">
+					Already Have An Account?
+					<a
+						class="ml-2 text-decoration-none text-info"
+						href="{% url 'login' %}"
+						>Sign In</a
+					>
+				</small>
+				<hr class="m-3" />
+				<small class="text-muted"
+					>By clicking Sign up, you agree to the terms of use.</small
+				>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock content%}

@@ -2,16 +2,19 @@
 
 {% extends 'myhood/base.html'%}{% load crispy_forms_tags %} {% block content%}
 
-<div class="container col-xl-10 col-xxl-8 px-4 py-5 mb-5 ">
+<div class="container col-xl-10 col-xxl-8 px-4 py-5 mb-5">
 	<hr class="m-3" />
-     <style>
-          body{
-                    background-image: url('https://github.com/amani-joseph/ASSETS/blob/main/compressed/pexels-photo-323705%20(1).png?raw=true');
-               }
-     </style>
-	<div class="row align-items-center g-lg-5 py-5" >
-		<div class="col-lg-7 text-center text-lg-start ">
-			<h1 class="text-light display-4 fw-bold lh-1 mb-3 "
+	<style>
+		body {
+			background-image: url("https://github.com/amani-joseph/ASSETS/blob/main/compressed/pexels-photo-323705%20(1).png?raw=true");
+		}
+	</style>
+	<div
+		class="row align-items-center g-lg-5 py-5"
+		style="background-color: rgba(0, 0, 0, 0.473); border-radius: 15px; "
+	>
+		<div class="col-lg-7 text-center text-lg-start">
+			<h1 class="text-light display-4 fw-bold lh-1 mb-3"
 				>Vertically centered hero sign-up form</h1
 			>
 			<p class="col-lg-10 fs-4 text-light"
@@ -20,17 +23,13 @@
 				attempting to submit the form without completing it.</p
 			>
 		</div>
-		<div
-			class="col-md-10 mx-auto col-lg-5 rounded-3 text-light shadow-3"
-			style="background-color: rgba(0, 0, 0, 0.473)"
-		>
-		<img
-		class="d-block mx-auto mb-4"
-		src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png"
-		alt=""
-		width="72"
-	/>
-			
+		<div class="col-md-10 mx-auto col-lg-5 rounded-3 text-light shadow-3">
+			<img
+				class="d-block mx-auto mb-4"
+				src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png"
+				alt=""
+				width="72"
+			/>
 
 			<form method="POST" class="d-flex flex-column align-items-center">
 				{% csrf_token %}
@@ -44,21 +43,24 @@
 					>
 				</div>
 			</form>
-			
-			<div class="border-top pt-3 text-center">
-				<small class=" text-light my-2">
-					Don't have an account?
-					<a class="ml-2 text-decoration-none text-info" href="{% url 'signup' %}">Sign Up</a>
-				</small>
-                    <hr class="m-3" />
-                    <small class="text-light text-center my-3 p-3"
-				>By clicking Sign up, you agreed to the terms of use.</small
-			>
-			<hr class="m-3" />
-			</div>
-			
-		
-	</div>
-</div>
 
-{% endblock content%}
+			<div class="border-top pt-3 text-center">
+				<small class="text-light my-2">
+					Don't have an account?
+					<a
+						class="ml-2 text-decoration-none text-info"
+						href="{% url 'signup' %}"
+						>Sign Up</a
+					>
+				</small>
+				<hr class="m-3" />
+				<small class="text-light text-center my-3 p-3"
+					>By clicking Sign up, you agreed to the terms of use.</small
+				>
+				<hr class="m-3" />
+			</div>
+		</div>
+	</div>
+
+	{% endblock content%}
+</div>

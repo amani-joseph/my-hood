@@ -84,9 +84,10 @@ def hood_detail(request, pk):
         _type_: _description_
     """
     hood = Neighbourhood.objects.get(id=pk)
-    business = Business.objects.filter(neighbourhood=hood)
+    businesses = Business.objects.filter(neighbourhood=hood)
     context={
-        'hood': hood
+        'hood': hood,
+        'businesses': businesses
     }
     return  render(request, 'myhood/hood_detail.html', context)
 
