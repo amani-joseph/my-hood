@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'phonenumber_field',
     'location_field.apps.DefaultConfig',
+    'mapwidgets',
 
 ]
 

@@ -34,7 +34,18 @@
 		<fieldset class="form-group">
 			<legend class="mb-4">Add a Neighborhood</legend>
 			{{ form|crispy }}
+			<input type="hidden" name="lat" id="lat" />
+			<input type="hidden" name="long" id="long" />
 		</fieldset>
+		<script>
+			navigator.geolocation.getCurrentPosition(function (location) {
+				lat = location.coords.latitude;
+				long = location.coords.longitude;
+				document.getElementById("lat").innerHTML = lat;
+				document.getElementById("long").innerHTML = long;
+				console.log(lat, long);
+			});
+		</script>
 
 		<!-- {{form.as_p}} -->
 		<div class="form-group mx-auto my-3 d-flex justify-content-center">

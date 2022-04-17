@@ -15,7 +15,7 @@ class UserRegisterForm(UserCreationForm):
 class NeighbourHoodForm(forms.ModelForm):
     class Meta:
         model = Neighbourhood
-        fields = ['name', 'city_address', 'description', ]
+        fields = ['name', 'city_address', 'location', 'description', ]
         exclude = ('user', 'population_count')
 
 

@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse
 
 from myhood.models import Neighbourhood, Business
 from .forms import UserRegisterForm, NeighbourHoodForm, BusinessForm  # ProfileUpdateForm
@@ -112,8 +113,9 @@ def create_business(request, pk):
             business.user = request.user
             business.neighbourhood = Neighbourhood.objects.filter(id=pk).first()
             business.save()
-            # return HttpResponseRedirect(f'/hood_detail/{pk}/')
-            return redirect(f'hood_detail/{pk}')
+            next = request.GET.get('next', reverse('index'))
+            return HttpResponseRedirect(f'/hood_detail/{pk}/')
+            # return redirect(f'hood_detail/{pk}')
     else:
         form = BusinessForm()
     return render(request, 'myhood/business_form.html', {'form': form})
