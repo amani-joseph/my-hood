@@ -9,15 +9,19 @@ from django.urls import reverse
 
 # Create your models here.
 categories = (
-    ('school', 'school'),
+    ('business', 'business'),
+    ('grocery', 'grocery'),
     ('gym', 'gym'),
     ('gas-station', 'gas-station'),
+    ('hospital', 'hospital'),
+    ('market', 'market'),
     ('recreational', 'recreational'),
     ('religious', 'religious'),
-    ('business', 'business'),
-    ('shop', 'shop'),
-    ('shopping-center', 'shopping-center'),
     ('residential', 'residential'),
+    ('school', 'school'),
+    ('shop', 'shop'),
+    ('shopping-mall', 'shopping-mall'),
+    ('sports', 'sports'),
 
 )
 
@@ -85,3 +89,20 @@ class Business(models.Model):
 #
 #     def __str__(self):
 #         return f'{self.business_location}, category'
+
+class Post(models.Model):
+    
+    message = models.CharField(max_length=200, null=False, unique=True, blank=True)
+    image = CloudinaryField('posts/', null=True, blank=True )
+    pub_date = models.DateTimeField(default=timezone.now)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.caption
+    
+    def save_post(self):
+        self.save()
+    
+    def get_absolute_url(self):
+        return reverse('index')

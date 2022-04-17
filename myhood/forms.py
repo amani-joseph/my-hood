@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Neighbourhood, Business
+from .models import Profile, Neighbourhood, Business, Post
 
 
 class UserRegisterForm(UserCreationForm):
@@ -22,5 +22,15 @@ class NeighbourHoodForm(forms.ModelForm):
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        fields = ['name', 'email', 'address', 'categories']
-        exclude = ('user', 'neighbourhood', 'location')
+        fields = ['name', 'email', 'address',  'categories', 'location']
+        exclude = ('user', 'neighbourhood')
+
+
+class PostForm(forms.ModelForm):
+    '''
+    Class that handles creating neighborhood posts
+    '''
+    class Meta:
+        model = Post
+        fields = ['image', 'message']
+        exclude = [ "pub_date", "user"]
