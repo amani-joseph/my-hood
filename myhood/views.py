@@ -1,11 +1,19 @@
+from multiprocessing import context
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
-from myhood.models import Neighbourhood
+from myhood.models import Neighbourhood, Business
 from .forms import UserRegisterForm , NeighbourHoodForm #ProfileUpdateForm
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 
 
 # Create your views here.
@@ -65,7 +73,7 @@ def create_hood(request):
     return render(request, 'myhood/hood_form.html', {'form': form})
 
 
-def hood_detail(request, id):
+def hood_detail(request, pk):
     """_summary_
 
     Args:
@@ -75,7 +83,12 @@ def hood_detail(request, id):
     Returns:
         _type_: _description_
     """
-    return  render(request, 'myhood/hood_detail.html')
+    hood = Neighbourhood.objects.get(id=pk)
+    business = Business.objects.filter(neighbourhood=hood)
+    context={
+        'hood': hood
+    }
+    return  render(request, 'myhood/hood_detail.html', context)
 
 
 def about(request):

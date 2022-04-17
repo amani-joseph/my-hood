@@ -1,0 +1,100 @@
+{% extends 'myhood/base.html'%}
+{% block content%}
+{% include 'myhood/emergency.html' %}
+<div class="container d-flex flex-wrap flex-row">
+     <div class="container">
+          <div class="container m-3" 
+				style="background-color: #D9AFD9;
+				background-image: linear-gradient(0deg, #D9AFD9 0%, #1b3e42 100%);
+				
+					  width: 18rem;
+					  height: 18rem;
+					  border-radius: 15px; ">
+					<h5 class="text-center text-light p-2 my-2">
+						<!-- <span class="fw-bolder" style="color:rgb(227, 226, 238)">
+						{{ hood.city }}
+						</span> -->
+						<span class="text-light fw-bold">
+							{{ object.name }}
+						</span>
+					</h5>
+					<p class="text-light p-2 " ">
+						{{hood.description | truncatechars:30}}
+					</p>
+					<hr class="m-3" />
+					<ul class="d-flex list-unstyled mt-auto ">
+					   <li class="me-auto">
+						<img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/location-arrow-256.png" alt="" width="32" height="32" class="rounded-circle border border-white">
+					   </li>
+					   <li class="d-flex align-items-center me-3 text-light">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pin-map-fill" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+							<path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+						   </svg>
+						<small>{{hood.city}}</small>
+					   </li>
+					   <li class="d-flex align-items-center">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z"/>
+						   </svg>
+						<small></small>
+					   </li>
+					 </ul>
+					 
+					 <a class=" footer" href="#">
+						<div class="btn btn-grad fw-bold" >Join Hood</div>
+					</a>
+					 
+					<div class="container">
+
+						<style>
+							
+							.btn-grad {background-image: linear-gradient(to right, #1D2B64 0%, #F8CDDA  51%, #0d2541  100%)}
+							.btn-grad {
+								margin: 5px;
+								padding: 5px 15px;
+								text-align: center;
+								transition: 0.5s;
+								background-size: 200% auto;
+								color: white;            
+								box-shadow: 0 0 20px #eee;
+								border-radius: 10px;
+								display: block;
+								}
+
+								.btn-grad:hover {
+								background-position: right center; /* change the direction of the change here */
+								color: #fff;
+								text-decoration: none;
+								}
+
+								.btn-grad-2 {background-image: linear-gradient(to right, #360033 0%, #0b8793  51%, #360033  100%)}
+								.btn-grad-2 {
+									margin: 5px;
+									padding: 5px 15px;
+									text-align: center;
+									transition: 0.5s;
+									background-size: 200% auto;
+									color: white;            
+									box-shadow: 0 0 20px #eee;
+									border-radius: 10px;
+									display: block;
+									}
+
+									.btn-grad-2:hover {
+									background-position: right center; /* change the direction of the change here */
+									color: #fff;
+									text-decoration: none;
+									}
+         
+						</style>
+						
+						
+					</div>
+
+
+				</div>
+     </div>
+     <div class="container"></div>
+</div>
+{% endblock content%}
