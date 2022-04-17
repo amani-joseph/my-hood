@@ -52,6 +52,7 @@ def index(request):
     return render(request, 'myhood/index.html', context)
 
 
+@login_required
 def create_hood(request):
     """_summary_
 
@@ -73,6 +74,7 @@ def create_hood(request):
     return render(request, 'myhood/hood_form.html', {'form': form})
 
 
+@login_required
 def hood_detail(request, pk):
     """_summary_
 
@@ -92,6 +94,7 @@ def hood_detail(request, pk):
     return render(request, 'myhood/hood_detail.html', context)
 
 
+@login_required
 def create_business(request, pk):
     """_summary_
 
