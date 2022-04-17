@@ -2,7 +2,7 @@
 {% block content%}
 {% include 'myhood/emergency.html' %}
 <div class="container-fluid d-flex flex-wrap flex-row">
-     <div class="col-md-4 m-3">
+     <div class="col-md-6 m-3">
           <div class="row g-4 align-items-stretch ">
                <div class="col">
                     <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://github.com/amani-joseph/ASSETS/blob/main/compressed/pexels-burst-374827%20(1)%20(1).jpg?raw=true'); background-size:cover; background-repeat:   no-repeat; background-position: center center; border-radius: 20px !important;">
@@ -10,9 +10,59 @@
                            <h2 class="p-2 m-2 display-6 lh-1 fw-bold">{{hood.name}}</h2>
                            <h5 class="p-2 m-2 lh-1 fw-bold">{{hood.city}}</h5>
                            <h5 class="p-2 m-2 lh-1 fw-bold" style="background-color: #03070b88; border-radius: 15px;" >{{hood.description}}</h5>
-                           <a href="tel:911" class="h1 text-decoration-none text-light fw-bolder">911</a>
+                           <p id="coordinates">{{hood.location}}</p>
+                           <!-- <a href="tel:911" class="h1 text-decoration-none text-light fw-bolder">911</a> -->
                            
                          </div>
+                         <div id="map"></div>
+                         <style>
+                              #map {
+                                   height: 400px;
+                                   /* The height is 400 pixels */
+                                   width: 100%;
+                                   /* The width is the width of the web page */
+                                   }
+
+                         </style>
+                         <script type="text/javascript">
+                              var coordinates = document.getElementById('coordinates').innerHTML
+                              console.log(coordinates)
+                              console.log(typeof(coordinates))
+                              var coordinatesArray = coordinates.split(',');
+                              console.log(coordinatesArray)
+                              var map=L.map('map').setView([coordinatesArray[0], coordinatesArray[1]], 20)
+                              L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=tEEGkzAHXZPkjwcM0YOi',{
+                                   attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+                              }).addTo(map);
+                              var marker = L.marker([coordinatesArray[0], coordinatesArray[1]]).addTo(map)
+                              var latitude = position.coords;
+                              var longitude = position.coords;
+                              
+                              
+                              
+                              
+
+                         </script>
+                         <!-- <script>
+                              neighbourhoodCoordinates= Document.getElementById('map')
+                              function initMap() {
+                              // The location of the neighbourhood
+
+                              const neighbourhood = { lat: -25.344, lng: 131.031 };
+                              // The map, centered at neighbourhood
+                              const map = new google.maps.Map(document.getElementById("map"), {
+                              zoom: 4,
+                              center: neighbourhood,
+                              });
+                              // The marker, positioned at neighbourhood
+                              const marker = new google.maps.Marker({
+                              position: neighbourhood,
+                              map: map,
+                              });
+                              }
+
+                              window.initMap = initMap;
+                         </script> -->
                        </div>
                </div>
           </div>
@@ -123,5 +173,7 @@
      </div>
      <div class=""></div>
 </div>
+
+
 
 {% endblock content%}
