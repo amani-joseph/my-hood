@@ -10,16 +10,16 @@
 		<header
 			class="p-3 mb-3 border-bottom"
 			style="
-				background: #e0eafc; /* fallback for old browsers */
+				background: #f2f3f5; /* fallback for old browsers */
 				background: -webkit-linear-gradient(
 					to right,
-					#cfdef3,
-					#e0eafc
+					#f1f2f3,
+					#eff0f1
 				); /* Chrome 10-25, Safari 5.1-6 */
 				background: linear-gradient(
 					to right,
-					#cfdef3,
-					#e0eafc
+					#f1f4f7a9,
+					#eff0f3
 				); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 			"
 		>
@@ -102,7 +102,7 @@
 							text-decoration: none;
 						}
 					</style>
-					<a class="" href="{% url 'create-hood'%}">
+					<a class="text-decoration-none" href="{% url 'create-hood'%}">
 						<div class="btn btn-grad1 fw-bold">Add Hood</div>
 					</a>
 					<div class="dropdown text-end mx-2">
@@ -113,13 +113,31 @@
 							data-bs-toggle="dropdown"
 							aria-expanded="false"
 						>
+							{% if user.profile.image %}
 							<img
+								width="32"
+								height="32"
+								class="rounded-circle mx-auto"
+								src="{{ user.profile.image.url }}"
+							/>
+
+							{% else %}
+							<img
+								width="32"
+								height="32"
+								class="rounded-circle mx-auto"
+								src="http://www.gravatar.com/avatar/?d=mp"
+							/>
+
+							{% endif %}
+
+							<!-- <img
 								src="https://github.com/mdo.png"
 								alt="mdo"
 								width="32"
 								height="32"
 								class="rounded-circle"
-							/>
+							/> -->
 						</a>
 						<ul
 							class="dropdown-menu text-small"
@@ -170,12 +188,12 @@
 						}
 					</style>
 
-					<div class="col-md-3 text-end d-flex">
-						<a href="{% url 'login' %}">
+					<div class="col-md-3 text-end d-flex text-decoration-none">
+						<a class="text-decoration-none" href="{% url 'login' %}">
 							<button type="button" class="btn btn-grad1 me-2">Login</button>
 						</a>
 
-						<a href="{% url 'signup' %}">
+						<a class="text-decoration-none" href="{% url 'signup' %}">
 							<button type="button" class="btn btn-grad1 me-2">Sign-up</button>
 						</a>
 

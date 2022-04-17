@@ -2,7 +2,7 @@
 {% block content%}
 {% include 'myhood/emergency.html' %}
 <div class="container-fluid d-flex flex-wrap flex-row">
-     <div class="col-md-6 col m-3">
+     <div class="col-md-12 col-lg-6  m-3 ">
           <div class="row g-4 align-items-stretch ">
                <div class="col">
                     <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://github.com/amani-joseph/ASSETS/blob/main/compressed/pexels-burst-374827%20(1)%20(1).jpg?raw=true'); background-size:cover; background-repeat:   no-repeat; background-position: center center; border-radius: 20px !important;">
@@ -67,13 +67,13 @@
                </div>
           </div>
      </div>
-     <div class="">
+     <div class="col flex-grow-1">
           <div class="text-center col-8 mx-auto mt-3">
-               <a class=" " href="{% url 'create-business' hood.id %}">
+               <a class="text-decoration-none" href="{% url 'create-business' hood.id %}">
                     <div class="btn btn-grad fw-bold" style="min-width: 12rem !important;" >Add Bussines</div>
                </a>
           </div>
-          <div class="d-flex flex-row flex-wrap">
+          <div class="d-flex flex-row flex-wrap justify-content-center">
                <style>
                                         
                     .btn-grad {background-image: linear-gradient(to right, #1D2B64 0%, #F8CDDA  51%, #0d2541  100%)}

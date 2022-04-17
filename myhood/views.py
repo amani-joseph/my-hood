@@ -112,8 +112,8 @@ def create_business(request, pk):
             business.user = request.user
             business.neighbourhood = Neighbourhood.objects.filter(id=pk).first()
             business.save()
-            return HttpResponseRedirect(f'hood_detail/{pk}')
-            # return redirect('hood-detail')
+            # return HttpResponseRedirect(f'/hood_detail/{pk}/')
+            return redirect(f'hood_detail/{pk}')
     else:
         form = BusinessForm()
     return render(request, 'myhood/business_form.html', {'form': form})
