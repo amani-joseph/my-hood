@@ -2,7 +2,7 @@
 {% block content%}
 {% include 'myhood/emergency.html' %}
 <div class="container-fluid d-flex flex-wrap flex-row">
-     <div class="col-md-6 m-3">
+     <div class="col-md-6 col m-3">
           <div class="row g-4 align-items-stretch ">
                <div class="col">
                     <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://github.com/amani-joseph/ASSETS/blob/main/compressed/pexels-burst-374827%20(1)%20(1).jpg?raw=true'); background-size:cover; background-repeat:   no-repeat; background-position: center center; border-radius: 20px !important;">
@@ -70,10 +70,51 @@
      <div class="">
           <div class="text-center col-8 mx-auto mt-3">
                <a class=" " href="#">
-                    <div class="btn btn-grad fw-bold" >Add Bussines</div>
+                    <div class="btn btn-grad fw-bold" style="min-width: 12rem !important;" >Add Bussines</div>
                </a>
           </div>
           <div class="d-flex flex-row flex-wrap">
+               <style>
+                                        
+                    .btn-grad {background-image: linear-gradient(to right, #1D2B64 0%, #F8CDDA  51%, #0d2541  100%)}
+                    .btn-grad {
+                         margin: 5px;
+                         padding: 5px 15px;
+                         text-align: center;
+                         transition: 0.5s;
+                         background-size: 200% auto;
+                         color: white;            
+                         box-shadow: 0 0 20px #eee;
+                         border-radius: 10px;
+                         display: block;
+                         }
+
+                         .btn-grad:hover {
+                         background-position: right center; /* change the direction of the change here */
+                         color: #fff;
+                         text-decoration: none;
+                         }
+
+                         .btn-grad-2 {background-image: linear-gradient(to right, #360033 0%, #0b8793  51%, #360033  100%)}
+                         .btn-grad-2 {
+                              margin: 5px;
+                              padding: 5px 15px;
+                              text-align: center;
+                              transition: 0.5s;
+                              background-size: 200% auto;
+                              color: white;            
+                              box-shadow: 0 0 20px #eee;
+                              border-radius: 10px;
+                              display: block;
+                              }
+
+                              .btn-grad-2:hover {
+                              background-position: right center; /* change the direction of the change here */
+                              color: #fff;
+                              text-decoration: none;
+                              }
+
+               </style>
                {% for biz in businesses%}
                <div class="container m-3" 
                          style="background-color: #D9AFD9;
@@ -90,6 +131,7 @@
                                         {{biz.name}}
                                    </span>
                               </h5>
+                              <h6 class="text-light p-2">{{hood.name}}</h6>
                               <p class="text-light p-2 " ">
                                    {{hood.description | truncatechars:30}}
                               </p>
@@ -113,53 +155,13 @@
                               </li>
                               </ul>
                               
-                              <a class=" footer" href="#">
+                              <!-- <a class=" footer" href="#">
                                    <div class="btn btn-grad fw-bold" >Join Hood</div>
-                              </a>
+                              </a> -->
                               
                               <div class="container">
 
-                                   <style>
-                                        
-                                        .btn-grad {background-image: linear-gradient(to right, #1D2B64 0%, #F8CDDA  51%, #0d2541  100%)}
-                                        .btn-grad {
-                                             margin: 5px;
-                                             padding: 5px 15px;
-                                             text-align: center;
-                                             transition: 0.5s;
-                                             background-size: 200% auto;
-                                             color: white;            
-                                             box-shadow: 0 0 20px #eee;
-                                             border-radius: 10px;
-                                             display: block;
-                                             }
-
-                                             .btn-grad:hover {
-                                             background-position: right center; /* change the direction of the change here */
-                                             color: #fff;
-                                             text-decoration: none;
-                                             }
-
-                                             .btn-grad-2 {background-image: linear-gradient(to right, #360033 0%, #0b8793  51%, #360033  100%)}
-                                             .btn-grad-2 {
-                                                  margin: 5px;
-                                                  padding: 5px 15px;
-                                                  text-align: center;
-                                                  transition: 0.5s;
-                                                  background-size: 200% auto;
-                                                  color: white;            
-                                                  box-shadow: 0 0 20px #eee;
-                                                  border-radius: 10px;
-                                                  display: block;
-                                                  }
-
-                                                  .btn-grad-2:hover {
-                                                  background-position: right center; /* change the direction of the change here */
-                                                  color: #fff;
-                                                  text-decoration: none;
-                                                  }
-          
-                                   </style>
+                                   
                                    
                                    
                               </div>

@@ -1,0 +1,45 @@
+<!-- @format -->
+
+{%extends 'myhood/base.html'%} {% load crispy_forms_tags %} {% block content %}
+<div class="container col-md-3 col-lg-4">
+	<style>
+		.btn-grad {
+			background-image: linear-gradient(
+				to right,
+				#1d2b64 0%,
+				#f8cdda 51%,
+				#0d2541 100%
+			);
+		}
+		.btn-grad {
+			margin: 5px;
+			padding: 5px 15px;
+			text-align: center;
+			transition: 0.5s;
+			background-size: 200% auto;
+			color: white;
+			box-shadow: 0 0 20px #eee;
+			border-radius: 10px;
+			display: block;
+		}
+
+		.btn-grad:hover {
+			background-position: right center; /* change the direction of the change here */
+			color: #fff;
+			text-decoration: none;
+		}
+	</style>
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<fieldset class="form-group">
+			<legend class="mb-4">Add a Business</legend>
+			{{ form|crispy }}
+		</fieldset>
+
+		<!-- {{form.as_p}} -->
+		<div class="form-group mx-auto my-3 d-flex justify-content-center">
+			<button class="btn btn-grad mx-auto" type="submit">Add a Business</button>
+		</div>
+	</form>
+</div>
+{% endblock content %}

@@ -9,11 +9,18 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = [ 'email', 'username','password1', 'password2']
+        fields = ['email', 'username', 'password1', 'password2']
 
 
 class NeighbourHoodForm(forms.ModelForm):
     class Meta:
         model = Neighbourhood
-        fields = ['name','city_address','description',]
-        exclude = ('user','population_count')
+        fields = ['name', 'city_address', 'description', ]
+        exclude = ('user', 'population_count')
+
+
+class BusinessForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        fields = ['name', 'email', 'address', 'categories']
+        exclude = ('user', 'neighbourhood', 'location')

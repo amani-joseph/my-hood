@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
 from myhood.models import Neighbourhood, Business
-from .forms import UserRegisterForm , NeighbourHoodForm #ProfileUpdateForm
+from .forms import UserRegisterForm , NeighbourHoodForm, BusinessForm #ProfileUpdateForm
 from django.views.generic import (
     ListView,
     DetailView,
@@ -90,6 +90,28 @@ def hood_detail(request, pk):
         'businesses': businesses
     }
     return  render(request, 'myhood/hood_detail.html', context)
+
+
+def create_business(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    if request.method == 'POST':
+        form = BusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.user = request.user
+            hood.save()
+            return redirect('index')
+    else:
+        form = NeighbourHoodForm()
+    return render(request, 'myhood/business_form.html', {'form': form})
+
 
 
 def about(request):
