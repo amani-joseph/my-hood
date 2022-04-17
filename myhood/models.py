@@ -23,10 +23,9 @@ class Profile(models.Model):
 
 class Neighbourhood(models.Model):
      name = models.CharField(max_length=100, null=False, blank=False, default='')
-     city = models.CharField(max_length=100)
+     city_address = models.CharField(max_length=100)
      population_count=models.IntegerField(null=False, blank=False, default=0)
-     location = PlainLocationField(based_fields=['city'], zoom=7)
-     address = models.CharField(max_length=100, blank=True, null=False)
+     location = PlainLocationField(based_fields=['city_address'], zoom=7)
      description = models.TextField(max_length=400)
      user = models.ForeignKey(User, on_delete=models.CASCADE)
 
