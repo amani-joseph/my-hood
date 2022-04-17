@@ -109,7 +109,7 @@ def create_business(request):
             hood.save()
             return redirect('index')
     else:
-        form = NeighbourHoodForm()
+        form = BusinessForm()
     return render(request, 'myhood/business_form.html', {'form': form})
 
 
