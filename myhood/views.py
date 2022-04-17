@@ -10,6 +10,14 @@ from .forms import UserRegisterForm , NeighbourHoodForm #ProfileUpdateForm
 
 # Create your views here.
 def register(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
@@ -37,6 +45,14 @@ def index(request):
 
 
 def create_hood(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     if request.method == 'POST':
         form = NeighbourHoodForm(request.POST, request.FILES)
         if form.is_valid():
@@ -49,12 +65,41 @@ def create_hood(request):
     return render(request, 'myhood/hood_form.html', {'form': form})
 
 
+def hood_detail(request, id):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+        id (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    return  render(request, 'myhood/hood_detail.html')
+
+
 def about(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     return render(request, 'myhood/about.html')
 
 
 @login_required
 def profile(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     user = request.user
     context = {
         'user': user,
@@ -65,4 +110,12 @@ def profile(request):
 
 @login_required
 def edit_profile(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     return render(request, 'myhood/auth/edit-profile.html')
