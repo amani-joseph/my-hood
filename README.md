@@ -14,13 +14,19 @@ This is a django application for rating web apps. Users can browse submitted pro
 
 ## Screenshots
 
-[//]: # ( <img src="https://github.com/amani-joseph/my-hood/blob/master/screenshot/1.png?raw=true" > )
+ <img src="https://github.com/amani-joseph/my-hood/blob/master/screenshots/0.png?raw=true" > 
 
-[//]: # ( <img src="https://github.com/amani-joseph/my-hood/blob/master/screenshot/2.png?raw=true" > )
+ <img src="https://github.com/amani-joseph/my-hood/blob/master/screenshots/1.png?raw=true" > 
 
-[//]: # ( <img src="https://github.com/amani-joseph/my-hood/blob/master/screenshot/3.png?raw=true" > )
+<img src="https://github.com/amani-joseph/my-hood/blob/master/screenshots/2.png?raw=true" > 
 
-[//]: # ( )
+<img src="https://github.com/amani-joseph/my-hood/blob/master/screenshots/3.png?raw=true" > 
+
+<img src="https://github.com/amani-joseph/my-hood/blob/master/screenshots/4.png?raw=true" > 
+
+ <img src="https://github.com/amani-joseph/my-hood/blob/master/screenshots/5.png?raw=true" > 
+
+ 
 ### Dependencies
 
 In order for you to use the content on this repo ensure you have the following:
