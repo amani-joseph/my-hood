@@ -17,6 +17,22 @@ class NeighbourHoodForm(forms.ModelForm):
         model = Neighbourhood
         fields = ['name', 'city_address', 'location', 'description', ]
         exclude = ('user', 'population_count')
+        labels = {
+            'name': ('Neighborhood name'),
+            'city_address': ('City Address'),
+        }
+        help_texts = {
+            'city_address': ('City, street, estate/building'),
+            # 'location': ('Do not fill this field manually'),
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Neighborhood name'}),
+            'city_address': forms.TextInput(attrs={'placeholder': 'City, street, estate/building'}),
+            'location': forms.TextInput(attrs={'placeholder': "CLICK THE MAP BELOW - DON'T ADD LOCATION BY TYPING! "}),
+            'description': forms.Textarea(
+                attrs={'placeholder': 'Enter description here'}),
+        }
+        
 
 
 class BusinessForm(forms.ModelForm):

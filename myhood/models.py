@@ -1,3 +1,4 @@
+from django import forms
 from django.db import models
 from django.forms import EmailField, ImageField
 from django.utils import timezone
