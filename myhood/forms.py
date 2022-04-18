@@ -30,7 +30,9 @@ class NeighbourHoodForm(forms.ModelForm):
             'city_address': forms.TextInput(attrs={'placeholder': 'City, street, estate/building'}),
             'location': forms.TextInput(attrs={'placeholder': "CLICK THE MAP BELOW - DON'T ADD LOCATION BY TYPING! "}),
             'description': forms.Textarea(
-                attrs={'placeholder': 'Enter description here'}),
+                attrs={'placeholder': 'Enter neighborhood description here'})
+            
+                
         }
         
 
@@ -40,6 +42,23 @@ class BusinessForm(forms.ModelForm):
         model = Business
         fields = ['name', 'email', 'address',  'categories', 'location']
         exclude = ('user', 'neighbourhood')
+        labels = {
+            'name': ('Business name'),
+        }
+        help_texts = {
+            'address': ('City, street, estate/building'),
+            'email': ('business@email.com'),
+            # 'location': ('Do not fill this field manually'),
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Business name'}),
+            'email': forms.TextInput(attrs={'placeholder': 'business@email.com'}),
+            'address': forms.TextInput(attrs={'placeholder': "City, street, estate/building"}),
+            'description': forms.Textarea(
+                attrs={'placeholder': 'Enter neighborhood description here'})
+            
+                
+        }
 
 
 class PostForm(forms.ModelForm):
@@ -64,3 +83,9 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image','hood']
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['message','image']

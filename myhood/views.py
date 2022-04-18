@@ -5,9 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse
-
-from myhood.models import Neighbourhood, Business
-from .forms import UserRegisterForm, NeighbourHoodForm, BusinessForm,ProfileUpdateForm, UserUpdateForm
+from myhood.models import Neighbourhood, Business, Post, Profile
+from .forms import UserRegisterForm, NeighbourHoodForm, BusinessForm,ProfileUpdateForm, UserUpdateForm, PostForm
 from django.views.generic import (
     ListView,
     DetailView,
@@ -88,8 +87,10 @@ def hood_detail(request, pk):
     """
     hood = Neighbourhood.objects.get(id=pk)
     businesses = Business.objects.filter(neighbourhood=hood)
+    posts = Post.objects.filter(neighbourhood=hood)
     context = {
         'hood': hood,
+        'posts': posts,
         'businesses': businesses
     }
     return render(request, 'myhood/hood_detail.html', context)
@@ -112,6 +113,28 @@ def create_business(request, pk):
             business = form.save(commit=False)
             business.user = request.user
             business.neighbourhood = Neighbourhood.objects.filter(id=pk).first()
+            business.save()
+            next = request.GET.get('next', reverse('index'))
+            return HttpResponseRedirect(f'/hood_detail/{pk}/')
+            # return redirect(f'hood_detail/{pk}')
+    else:
+        form = BusinessForm()
+    return render(request, 'myhood/business_form.html', {'form': form})
+
+
+
+def create_post(request, pk)):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+    """
+    if request.method == 'POST':
+        form = BusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.neighbourhood = Neighbourhood.objects.filter(id=pk).first()
             business.save()
             next = request.GET.get('next', reverse('index'))
             return HttpResponseRedirect(f'/hood_detail/{pk}/')

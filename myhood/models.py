@@ -100,7 +100,7 @@ class Post(models.Model):
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.caption
+        return self.message
     
     def save_post(self):
         self.save()
