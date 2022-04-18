@@ -50,7 +50,9 @@
 			{% endif %}
 		</div>
 		<div class="text-center py-2 fw-bold">{{user.username}}</div>
-		<div class="text-center py-2 fw-bold">{{user.profile.hood}}</div>
+		<div class="text-center py-2 fw-bold">
+			<span class="fw-bold px-3">Neighborhood:</span> {{user.profile.hood}}</div
+		>
 		<div class="text-center py-2 fw-bold">{{user.email}}</div>
 		<div class="text-center py-2 fw-bold">
 			<a class="text-decoration-none" href="{% url 'edit-profile' %}">
