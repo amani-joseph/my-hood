@@ -57,12 +57,20 @@
 
 		<title>My-hood</title>
 	</head>
-	<body style=""></body>
+	<body ></body>
 		<style>
 			/* background-image: url('https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg');
 	mask: rgba(22, 21, 21, 0.747); */
 		</style>
 		{% include 'myhood/navbar.html'%}
+		{% if messages %}
+			{% for message in messages %}
+
+				<div class="col-md-6 mx-auto alert alert-{{ message.tags }}">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endif %}
 		<section> {% block content%} {% endblock content%} </section>
 		<main> </main>
 
