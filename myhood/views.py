@@ -123,25 +123,25 @@ def create_business(request, pk):
 
 
 
-def create_post(request, pk)):
+def create_post(request, pk):
     """_summary_
 
     Args:
         request (_type_): _description_
     """
     if request.method == 'POST':
-        form = BusinessForm(request.POST, request.FILES)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.user = request.user
             post.neighbourhood = Neighbourhood.objects.filter(id=pk).first()
-            business.save()
+            post.save()
             next = request.GET.get('next', reverse('index'))
             return HttpResponseRedirect(f'/hood_detail/{pk}/')
             # return redirect(f'hood_detail/{pk}')
     else:
-        form = BusinessForm()
-    return render(request, 'myhood/business_form.html', {'form': form})
+        form = PostForm()
+    return render(request, 'myhood/post_form.html', {'form': form})
 
 
 def about(request):

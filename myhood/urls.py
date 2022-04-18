@@ -13,6 +13,7 @@ urlpatterns = [
     path('edit_profile/', views.edit_profile, name='edit-profile'),
     path('create_hood/', views.create_hood, name='create-hood'),
     path('create_business/<int:pk>/', views.create_business, name='create-business'),
+    path('create_post/<int:pk>/', views.create_post, name='create-post'),
     path('hood_detail/<int:pk>/', views.hood_detail, name='hood-detail'),
     # path('hood/<int:pk>/', HoodDetailView.as_view(), name='hood-detail'),
     path('edit_profile/<int:pk>/', views.edit_profile, name='edit-profile'),
