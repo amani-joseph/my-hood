@@ -43,9 +43,11 @@ def index(request):
     view to render the index page.
     """
     title = 'My-Hood'
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    hoods = Neighbourhood.objects.filter(name__icontains=q)
     context = {
         'title': title,
-        'hoods': Neighbourhood.objects.all()
+        'hoods': hoods
 
     }
     # return render(request, )

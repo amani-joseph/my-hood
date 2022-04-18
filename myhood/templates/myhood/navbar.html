@@ -66,11 +66,13 @@
 					</ul>
 
 					{% if user.is_authenticated %}
-					<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+					<form method="GET" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+						{% csrf_token %}
 						<input
 							type="search"
+							name="q"
 							class="form-control"
-							placeholder="Search..."
+							placeholder="Search Hood..."
 							aria-label="Search"
 						/>
 					</form>
