@@ -1,3 +1,4 @@
+from email.policy import default
 from django import forms
 from django.db import models
 from django.forms import EmailField, ImageField
@@ -29,7 +30,7 @@ categories = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = CloudinaryField('profile/')
+    image = CloudinaryField('profile/', default='', null=True, blank=True)
     bio = models.TextField(max_length=300, null=True, default="My Bio", blank=True)
     hood = models.ForeignKey('Neighbourhood', null=True, on_delete=models.SET_NULL, default='')
 
