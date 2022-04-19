@@ -40,6 +40,12 @@ class Profile(models.Model):
     def save(self, *args, **kwargs):
         super(Profile, self).save(*args, **kwargs)
 
+    @classmethod
+    def delete_profile(cls, id):
+        return cls.objects.filter(id=id).delete()
+
+    
+
 
 class Neighbourhood(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False, default='')
@@ -75,25 +81,24 @@ class Business(models.Model):
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
     location = PlainLocationField(based_fields=['address'], zoom=7, blank=False, default='')
     categories = models.CharField(choices=categories, max_length=100, default='', blank=True)
+    
     def __str__(self):
         return f'{self.name}'
 
     def save_business(self):
         self.save()
 
-    def delete_business(self):
-        self.delete()
+    def delete_business(cls, pk):
+        cls.objects.filter(pk=pk).delete()
 
-# class Category(models.Model):
-#
-#     category = models.CharField(choices=categories, max_length=100, default="", blank=True)
-#     business = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='category', null=True)
-#
-#     def __str__(self):
-#         return f'{self.business_location}, category'
+    @classmethod
+    def find_business(cls, id):
+        search_results = cls.objects.filter(id=id)
+        return search_results
 
-class Post(models.Model):
-    
+
+
+class Post(models.Model):    
     message = models.CharField(max_length=200, null=False, unique=True, blank=True)
     image = CloudinaryField('posts/', null=True, blank=True )
     pub_date = models.DateTimeField(default=timezone.now)
