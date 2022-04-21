@@ -1,6 +1,6 @@
 # my-hood
 
-This is a django application for rating web apps. Users can browse submitted projects and vote on them based on usability, design and content. Users can also post their own projects and have them rated. 
+This is a neighborhood platform that helps users connect and keep tab of the happenings within their neighborhoods. It is aimed at creating a connected community with residents more connected with their local businesses. 
 ## Features
 
 - Django 4.0+
